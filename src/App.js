@@ -89,7 +89,7 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>🍻 thachil.recalculate() - Alcohol Distribution System</h1>
+        <h1>🍾 kuppi</h1>
         <div className="git-status">
           <span className={`status-badge ${gitStatus.toLowerCase()}`}>
             Git Status: {gitStatus} - {gitStatus === 'GREEN' ? 'All scenarios supported ✅' : 'Merge conflicts detected ⚠️'}
