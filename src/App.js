@@ -248,7 +248,7 @@ function App() {
 
       <footer className="app-footer">
         <p>🚀 Code review passed: No memory leaks, proper resource allocation, scalable architecture</p>
-        <p>⚠️ WARNING: Please drink responsibly P.S. NO ALLEPEY TRIPS!!!!!. This is a parody calculator for entertainment purposes.</p>
+        <p>⚠️ WARNING: Please drink responsibly P.S. NO ALLEPEY TRIPS!!!!!. Drink responsibly - error 404!!!.</p>
       </footer>
     </div>
   );

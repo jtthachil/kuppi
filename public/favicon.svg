@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Bottle body -->
+  <rect x="25" y="30" width="50" height="60" rx="8" fill="url(#bottleGrad)" stroke="#fff" stroke-width="2"/>
+  
+  <!-- Bottle neck -->
+  <rect x="40" y="15" width="20" height="20" fill="url(#bottleGrad)" stroke="#fff" stroke-width="2"/>
+  
+  <!-- Bottle cap -->
+  <rect x="38" y="10" width="24" height="8" rx="4" fill="#ff6b6b" stroke="#fff" stroke-width="2"/>
+  
+  <!-- Label -->
+  <rect x="30" y="45" width="40" height="20" rx="2" fill="rgba(255,255,255,0.9)"/>
+  <text x="50" y="55" text-anchor="middle" font-family="monospace" font-size="8" fill="#000">kuppi</text>
+  
+  <!-- Liquid -->
+  <rect x="28" y="50" width="44" height="35" rx="6" fill="rgba(255,107,107,0.6)"/>
+</svg> 
