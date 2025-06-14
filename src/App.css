@@ -1,38 +1,516 @@
+/* App.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #00ff41;
+  min-height: 100vh;
+}
+
 .App {
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: rgba(0, 255, 65, 0.1);
+  border: 2px solid #00ff41;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 20px 0;
+  text-shadow: 0 0 10px #00ff41;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00ff41; }
+  to { text-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41; }
+}
+
+.git-status {
+  margin: 15px 0;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.status-badge.green {
+  background: #00ff41;
+  color: #000;
+}
+
+.status-badge.red {
+  background: #ff4444;
+  color: #fff;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #888;
+  margin: 10px 0 0 0;
+}
+
+.inventory-section {
+  margin: 40px 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid #333;
+}
+
+.inventory-section h2 {
+  color: #ff6b6b;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.bottles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.bottle-config {
+  padding: 20px;
+  background: rgba(255, 107, 107, 0.1);
+  border: 2px solid #ff6b6b;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.bottle-config:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+.bottle-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.bottle-config h3 {
+  color: #ff6b6b;
+  margin: 10px 0;
+}
+
+.bottle-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #ff6b6b;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.bottle-input:focus {
+  outline: none;
+  border-color: #00ff41;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.bottle-total {
+  color: #00ff41;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.total-alcohol {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 255, 65, 0.1);
+  border-radius: 10px;
+  border: 2px solid #00ff41;
+}
+
+.total-alcohol h3 {
+  color: #00ff41;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.scenarios-section {
+  margin: 40px 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-header h2 {
+  color: #4ecdc4;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.add-scenario-btn {
+  padding: 12px 24px;
+  background: #4ecdc4;
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Courier New', monospace;
+}
+
+.add-scenario-btn:hover {
+  background: #00ff41;
+  transform: scale(1.05);
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+}
+
+.scenario-card {
+  background: rgba(78, 205, 196, 0.1);
+  border: 2px solid #4ecdc4;
+  border-radius: 15px;
+  padding: 25px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.scenario-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(78, 205, 196, 0.3);
+}
+
+.scenario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.scenario-name {
+  background: transparent;
+  border: none;
+  color: #4ecdc4;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  width: 70%;
+}
+
+.scenario-name:focus {
+  outline: none;
+  border-bottom: 2px solid #00ff41;
+}
+
+.remove-btn {
+  background: #ff4444;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.remove-btn:hover:not(:disabled) {
+  transform: scale(1.2);
+}
+
+.remove-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.git-info {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.git-info code {
+  color: #888;
+}
+
+.people-config {
+  margin: 20px 0;
+}
+
+.people-config label {
+  display: block;
+  margin-bottom: 5px;
+  color: #4ecdc4;
+  font-weight: bold;
+}
+
+.people-input {
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #4ecdc4;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.people-input:focus {
+  outline: none;
+  border-color: #00ff41;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* New Peg Scenarios Styles */
+.pegs-scenarios {
+  margin: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pegs-scenarios h4 {
+  color: #4ecdc4;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.peg-scenario {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 4px solid;
+}
+
+.peg-scenario.peg-45 {
+  border-left-color: #ff6b6b;
+}
+
+.peg-scenario.peg-60 {
+  border-left-color: #4ecdc4;
+}
+
+.peg-scenario.peg-90 {
+  border-left-color: #00ff41;
+}
+
+.peg-scenario-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.peg-scenario-header h5 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.efficiency-badge {
+  background: rgba(0, 255, 65, 0.2);
+  color: #00ff41;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.peg-scenario-details {
+  margin: 10px 0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.detail-row .label {
+  color: #ccc;
+}
+
+.detail-row .value {
+  color: #fff;
+  font-weight: bold;
+}
+
+.detail-row.waste .label,
+.detail-row.waste .value {
+  color: #ff6b6b;
+}
+
+.summary-stats {
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.summary-stats h5 {
+  color: #4ecdc4;
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.stat-label {
+  display: block;
+  color: #ccc;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  display: block;
+  color: #00ff41;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.status-indicator {
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.status-indicator.success {
+  background: rgba(0, 255, 65, 0.2);
+  border: 1px solid #00ff41;
+  color: #00ff41;
+}
+
+.status-indicator.error {
+  background: rgba(255, 68, 68, 0.2);
+  border: 1px solid #ff4444;
+  color: #ff4444;
+}
+
+.app-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border: 1px solid #333;
+}
+
+.app-footer p {
+  margin: 10px 0;
+  color: #888;
+}
+
+.app-footer p:first-child {
+  color: #00ff41;
+}
+
+.app-footer p:last-child {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .app-header h1 {
+    font-size: 1.8rem;
   }
+  
+  .bottles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .scenarios-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.bottle-config:hover .bottle-icon {
+  animation: pulse 1s infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4ecdc4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff41;
 }
